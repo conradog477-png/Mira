@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcfcfc; /* Fondo casi blanco para que resalten las flores */
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Diseño de la carta */
+.envelope-wrapper {
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+    z-index: 10;
+}
+
+.envelope-wrapper:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.envelope {
+    position: relative;
+    width: 200px;
+    height: 140px;
+    background-color: #f7b4c9; /* Rosa pastel suave */
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 30px rgba(247, 180, 201, 0.4);
+}
+
+.flap {
+    position: absolute;
+    top: -1px; /* Pequeño ajuste para cubrir bordes */
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 80px solid #f290b0; /* Rosa más oscuro para la solapa */
+    z-index: 2;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+.body {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 140px;
+    background-color: #f7b4c9; /* Igual que el sobre */
+    border-radius: 0 0 10px 10px;
+    z-index: 1;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 30px; /* Un poco más arriba */
+    color: white;
+    font-weight: bold;
+    z-index: 3;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Partículas de la explosión */
+.particle {
+    position: absolute;
+    font-size: 2.5rem; /* Un poco más grandes */
+    pointer-events: none;
+    user-select: none;
+    /* Centrar la partícula en su punto de origen */
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity; /* Optimización de rendimiento */
+}
